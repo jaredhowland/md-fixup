@@ -3205,9 +3205,6 @@ fn init_config_file(force: bool, local: bool) -> Option<PathBuf> {
     for rule in all_rules {
         yaml_content.push_str(&format!("    - {}\n", rule));
     }
-    yaml_content.push_str(
-        "  # To disable setext heading conversion, move to skip:\n  # skip:\n  #   - setext-to-atx\n",
-    );
 
     fs::write(&config_file, yaml_content).ok()?;
     Some(config_file)
